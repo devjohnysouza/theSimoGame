@@ -1,47 +1,54 @@
 
-var buttonColours  =  ["red", "blue", "green", "yellow"]; // errei pois coloquei dentro da função
+var buttonColours  =  ["red", "blue", "green", "yellow"]; 
 
-
-var gamePattern = []; //errei pois coloquei dentro da função
+var gamePattern = []; 
 var userClickedPattern = [];
+var started = false; //falto criar essa var, mas fiquei confuso se era dentro ou fora 
+var level = 0; // criei ela dentro da função
+
+//não consegui interpretar essa função
+$(document).keypress(function(){
+
+  if (!started) {
+    
+    $("#level-title").text("Level" + level);
+    nextSequence();
+    started = true;
+  }
+})
 
 
-
-  // eu fiz dentro da função nextSquence sendo que era para fazer fora   
 $(".btn").click(function () {
   
-  var userChosenColour =  $(this).attr("id"); //acertei, bas
+  var userChosenColour =  $(this).attr("id"); 
 
-  userClickedPattern.push(userChosenColour);//falto esse aqui que eu não consegui fazer
+  userClickedPattern.push(userChosenColour);
 
-
-  
-  playSound(userChosenColour); //acertei em termos falto coloar a variavel aqui dentro
-}) 
+  playSound(userChosenColour); 
+}); 
      
  
+
 function nextSequence() {
 
-  var randomNumber = Math.floor(Math.random() * 4 ) +1; //acertei
-  var randomChosenColour = buttonColours[randomNumber]; // tinha  que abri como uma variavel
-  gamePattern.push(randomChosenColour); //não soube chamar esse arquivo aqui
 
-  // randomChosenColour = buttonColours + randomNumber; o meu coloquei como mais mas a inteção foi certa
-  
- 
-  $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);// acertie 50% era só add
+  level++; //não consegui interpretar esse problema aqui
 
-  //$("#").animate({ backgroundColor: "#FFFFFF"}, 1500); eu tinha acetado do outro jeito
-  
- 
+  //não consegui interpretar esse problema aqui
+  $("#level-title").text("Level" + level);
 
-  playSound(randomChosenColour);//acertei em termos falto coloar a variavel aqui dentro
-   
+
+  var randomNumber = Math.floor(Math.random() * 4 ) +1; 
+  var randomChosenColour = buttonColours[randomNumber]; 
+  gamePattern.push(randomChosenColour); 
+
  
+  $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);/
+  playSound(randomChosenColour);/
+
+
+
 }
-
-
-nextSequence();
 
 function playSound(name) { 
 
@@ -56,8 +63,8 @@ function playSound(name) {
 
 function animatePress(currentColour) {
   
- $('#' + currentColour).addClass("pressed"); //acertei em partes errei em não chamar o id concatenando com o current 
-  //setTimeout falto chamar essa classificação do tempo
+ $('#' + currentColour).addClass("pressed");  
+
  setTimeout(function () {
   $('#' + currentColour).removeClass("pressed");
  }, 100)
