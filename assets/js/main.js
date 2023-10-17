@@ -21,9 +21,6 @@ $(".btn").click(function () {
      
  
 function nextSequence() {
-  
-
-
 
   var randomNumber = Math.floor(Math.random() * 4 ) +1; //acertei
   var randomChosenColour = buttonColours[randomNumber]; // tinha  que abri como uma variavel
@@ -32,9 +29,6 @@ function nextSequence() {
   // randomChosenColour = buttonColours + randomNumber; o meu coloquei como mais mas a inteção foi certa
   
  
-
-
-
   $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);// acertie 50% era só add
 
   //$("#").animate({ backgroundColor: "#FFFFFF"}, 1500); eu tinha acetado do outro jeito
@@ -58,4 +52,13 @@ function playSound(name) {
   }
 
 
+}
+
+function animatePress(currentColour) {
+  
+ $('#' + currentColour).addClass("pressed"); //acertei em partes errei em não chamar o id concatenando com o current 
+  //setTimeout falto chamar essa classificação do tempo
+ setTimeout(function () {
+  $('#' + currentColour).removeClass("pressed");
+ }, 100)
 }
