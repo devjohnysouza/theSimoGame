@@ -8,7 +8,7 @@ var started = false;
 var level = 0; 
 
 
-$(document).keypress(function() {
+$(document).click(function() {
   if (!started) {
     
     $("#level-title").text("Level " + level);
@@ -31,6 +31,7 @@ $(".btn").click(function() {
      
 function checkAnswer(currentLevel) {
   if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
+    
     console.log("success");
 
     if (userClickedPattern.length === gamePattern.length) {
@@ -40,6 +41,16 @@ function checkAnswer(currentLevel) {
     }
   }  else {
     console.log("wrong");
+    playSound("wrong")
+
+    $("body").addClass("game-over");
+    setTimeout(function(){
+      $("body").removeClass("game-over");
+      $("#level-title").text("Game Over, Aperte Restart");
+    }, 200)
+  
+
+    startOver();
   }
 
 
@@ -51,7 +62,7 @@ function nextSequence() {
 
   level++; 
   
-  $("#level-title").text("Level" + level);
+  $("#level-title").text("Level " + level);
 
 
   var randomNumber = Math.floor(Math.random() * 4); 
@@ -80,3 +91,15 @@ function animatePress(currentColor) {
 }
 
 
+function startOver() {
+
+  level = 0;
+  gamePattern = [];
+  started = false;
+}
+
+document.getElementById("reloadButton").addEventListener("click", function() {
+  // Recarrega a página atual
+  location.reload();
+
+});

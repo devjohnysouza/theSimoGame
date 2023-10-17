@@ -17,6 +17,18 @@ body {
 
 }
 
+#reloadButton{
+  background-color: white; /* Cor de fundo */
+  color: #011F3F; /* Cor do texto */
+  padding: 10px 20px; /* Espaçamento interno */
+  border: none; /* Sem borda */
+  border-radius: 5px; /* Cantos arredondados */
+  cursor: pointer;
+  margin-top: 10rem;
+  font-weigh: bold;
+  font-family: 'Press Start 2P', cursive;
+}
+
 .btn {
   margin: 15px;
   display: inline-block;
