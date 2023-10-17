@@ -1,29 +1,30 @@
 
 var buttonColours  =  ["red", "blue", "green", "yellow"]; // errei pois coloquei dentro da função
 
-var gamePattern = []; //errei pois coloquei dentro da função
 
+var gamePattern = []; //errei pois coloquei dentro da função
 var userClickedPattern = [];
 
 
 
   // eu fiz dentro da função nextSquence sendo que era para fazer fora   
 $(".btn").click(function () {
+  
   var userChosenColour =  $(this).attr("id"); //acertei, bas
 
   userClickedPattern.push(userChosenColour);//falto esse aqui que eu não consegui fazer
 
+
+  
+  playSound(userChosenColour); //acertei em termos falto coloar a variavel aqui dentro
 }) 
      
  
-
-
-
-
-
-
 function nextSequence() {
   
+
+
+
   var randomNumber = Math.floor(Math.random() * 4 ) +1; //acertei
   var randomChosenColour = buttonColours[randomNumber]; // tinha  que abri como uma variavel
   gamePattern.push(randomChosenColour); //não soube chamar esse arquivo aqui
@@ -38,10 +39,9 @@ function nextSequence() {
 
   //$("#").animate({ backgroundColor: "#FFFFFF"}, 1500); eu tinha acetado do outro jeito
   
-  var audio = new Audio("sounds/" + randomChosenColour + ".mp3");
-  audio.play();
+ 
 
-
+  playSound(randomChosenColour);//acertei em termos falto coloar a variavel aqui dentro
    
  
 }
@@ -49,36 +49,13 @@ function nextSequence() {
 
 nextSequence();
 
-//errei totalmente
-/*function makeSound(key) { 
+function playSound(name) { 
+
+  var audio = new Audio("sounds/" + randomChosenColour + ".mp3");
+  audio.play();
   
-  switch (key) {
-    case "red":
-      var soundRed = new Audio('assets/sounds/red.mp3')
-      soundRed.play;
-      break;
-  
-     case "blue":
-     var soundBlue = new Audio('assets/sounds/blue.mp3')
-     soundBlue.play;
-     break;
-
-
-    case "green":
-    var soundGreen = new Audio('assets/sounds/green.mp3')
-    soundGreen.play;
-    break; 
-
-
-    case "yellow":
-    var soundYellow = new Audio('assets/sounds/yellow.mp3')
-    soundYellow.play;
-    break; 
-
-
-    default: console.log(key);
-     
+       
   }
 
 
-}*/
+}
