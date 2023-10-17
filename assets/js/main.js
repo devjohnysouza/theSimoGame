@@ -3,6 +3,23 @@ var buttonColours  =  ["red", "blue", "green", "yellow"]; // errei pois coloquei
 
 var gamePattern = []; //errei pois coloquei dentro da função
 
+var userClickedPattern = [];
+
+
+
+  // eu fiz dentro da função nextSquence sendo que era para fazer fora   
+$(".btn").click(function () {
+  var userChosenColour =  $(this).attr("id"); //acertei, bas
+
+  userClickedPattern.push(userChosenColour);//falto esse aqui que eu não consegui fazer
+
+}) 
+     
+ 
+
+
+
+
 
 
 function nextSequence() {
@@ -13,7 +30,7 @@ function nextSequence() {
 
   // randomChosenColour = buttonColours + randomNumber; o meu coloquei como mais mas a inteção foi certa
   
-  
+ 
 
 
 
@@ -25,7 +42,7 @@ function nextSequence() {
   audio.play();
 
 
-  
+   
  
 }
 
